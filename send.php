@@ -31,7 +31,7 @@ $name  = htmlspecialchars($name, ENT_QUOTES, 'UTF-8');
 $phone = htmlspecialchars($phone, ENT_QUOTES, 'UTF-8');
 
 // Настройки
-$to      = 'pos@pro-online.ru';
+$to      = 'matveev@pro-online.ru';
 $subject = 'Новая заявка с сайта ProOnline';
 
 // Формируем письмо
