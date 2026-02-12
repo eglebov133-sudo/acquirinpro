@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+<html class="light" lang="ru">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>AcquirinPro — Интернет-эквайринг для бизнеса | Ставка от 1%</title>
+  <meta name="description"
+    content="Подключение интернет-эквайринга для бизнеса. Ставка от 1%, подключение за 24 часа, деньги на счёте на следующий день. СБП, Visa, MasterCard, МИР." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+    rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#135bec",
+            "primary-dark": "#0f4bc4",
+            "accent": "#00c6ff",
+            "background-light": "#f6f6f8",
+            "background-dark": "#101622",
+            "surface-light": "#ffffff",
+            "surface-dark": "#1a2230",
+            "text-light": "#111318",
+            "text-dark": "#f0f2f4",
+            "text-secondary-light": "#616f89",
+            "text-secondary-dark": "#9ba6b9",
+            "border-light": "#e5e7eb",
+            "border-dark": "#2d3748",
+          },
+          fontFamily: { "display": ["Manrope", "sans-serif"] },
+          borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "3xl": "1.5rem", "full": "9999px" },
+          keyframes: {
+            fadeUp: { '0%': { opacity: '0', transform: 'translateY(30px)' }, '100%': { opacity: '1', transform: 'translateY(0)' } },
+            scaleIn: { '0%': { opacity: '0', transform: 'scale(0.9)' }, '100%': { opacity: '1', transform: 'scale(1)' } },
+            slideDown: { '0%': { opacity: '0', transform: 'translateY(-10px)' }, '100%': { opacity: '1', transform: 'translateY(0)' } },
+            pulse2: { '0%,100%': { opacity: '1' }, '50%': { opacity: '.7' } },
+          },
+          animation: {
+            'fade-up': 'fadeUp 0.6s ease-out forwards',
+            'scale-in': 'scaleIn 0.4s ease-out forwards',
+            'slide-down': 'slideDown 0.3s ease-out forwards',
+            'pulse2': 'pulse2 2s ease-in-out infinite',
+          },
+        },
+      },
+    }
+  </script>
+  <style>
+    body {
+      font-family: 'Manrope', sans-serif;
+    }
+
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 4px;
+    }
+
+    .dark ::-webkit-scrollbar-thumb {
+      background: #475569;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.7s ease;
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .modal-backdrop {
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .modal-backdrop.open {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .modal-content {
+      transform: scale(0.9) translateY(20px);
+      transition: transform 0.3s ease;
+    }
+
+    .modal-backdrop.open .modal-content {
+      transform: scale(1) translateY(0);
+    }
+
+    .stat-number {
+      background: linear-gradient(135deg, #135bec, #00c6ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-gradient {
+      background: linear-gradient(135deg, rgba(19, 91, 236, 0.05) 0%, rgba(0, 198, 255, 0.05) 100%);
+    }
+
+    .tariff-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px rgba(19, 91, 236, 0.15);
+    }
+
+    .tariff-popular {
+      border: 2px solid #135bec;
+      position: relative;
+    }
+
+    .tariff-popular::before {
+      content: 'Популярный';
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #135bec;
+      color: white;
+      padding: 2px 16px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    .float-anim {
+      animation: float 3s ease-in-out infinite;
+    }
+  </style>
+</head>
+
+<body
+  class="bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark antialiased min-h-screen flex flex-col transition-colors duration-300">
+  <div class="relative flex flex-col w-full overflow-x-hidden">
+
+    <!-- Header -->
+    <header
+      class="sticky top-0 z-50 w-full bg-surface-light/90 dark:bg-surface-dark/90 backdrop-blur-md border-b border-border-light dark:border-border-dark">
+      <div class="px-4 md:px-10 py-3 mx-auto max-w-7xl flex items-center justify-between">
+        <a href="#" class="flex items-center no-underline">
+          <img src="logo.png" alt="ProOnline" class="h-28 w-auto"
+            style="margin: -3.5rem 0; clip-path: inset(25% 5% 25% 5%);" />
+        </a>
+        <div class="hidden md:flex items-center gap-8">
+          <nav class="flex items-center gap-6">
+            <a class="text-text-light dark:text-text-dark hover:text-primary transition-colors text-sm font-medium"
+              href="#features">Преимущества</a>
+            <a class="text-text-light dark:text-text-dark hover:text-primary transition-colors text-sm font-medium"
+              href="#tariffs">Тарифы</a>
+            <a class="text-text-light dark:text-text-dark hover:text-primary transition-colors text-sm font-medium"
+              href="#about">О нас</a>
+            <a class="text-text-light dark:text-text-dark hover:text-primary transition-colors text-sm font-medium"
+              href="#contacts">Контакты</a>
+          </nav>
+          <a href="tel:88003335110"
+            class="text-sm font-semibold text-text-light dark:text-text-dark hover:text-primary transition-colors hidden lg:block">8-800-333-51-10</a>
+          <button onclick="openModal()"
+            class="flex items-center justify-center rounded-lg h-9 px-5 bg-primary hover:bg-primary-dark transition-all text-white text-sm font-bold shadow-lg shadow-primary/20 hover:shadow-primary/40">
+            <span>Оставить заявку</span>
+          </button>
+        </div>
+        <button id="burger-btn" onclick="toggleMobileMenu()" class="md:hidden text-text-light dark:text-text-dark p-2">
+          <span class="material-symbols-outlined text-[28px]">menu</span>
+        </button>
+      </div>
+      <!-- Mobile Menu -->
+      <div id="mobile-menu"
+        class="hidden md:hidden bg-surface-light dark:bg-surface-dark border-t border-border-light dark:border-border-dark animate-slide-down">
+        <nav class="flex flex-col px-4 py-4 gap-3">
+          <a onclick="closeMobileMenu()"
+            class="text-text-light dark:text-text-dark hover:text-primary transition-colors text-base font-medium py-2"
+            href="#features">Преимущества</a>
+          <a onclick="closeMobileMenu()"
+            class="text-text-light dark:text-text-dark hover:text-primary transition-colors text-base font-medium py-2"
+            href="#tariffs">Тарифы</a>
+          <a onclick="closeMobileMenu()"
+            class="text-text-light dark:text-text-dark hover:text-primary transition-colors text-base font-medium py-2"
+            href="#about">О нас</a>
+          <a onclick="closeMobileMenu()"
+            class="text-text-light dark:text-text-dark hover:text-primary transition-colors text-base font-medium py-2"
+            href="#contacts">Контакты</a>
+          <a href="tel:88003335110" class="text-primary font-semibold text-base py-2">8-800-333-51-10</a>
+          <button onclick="openModal(); closeMobileMenu();"
+            class="mt-2 rounded-lg h-11 bg-primary hover:bg-primary-dark text-white font-bold text-base shadow-lg shadow-primary/20">Оставить
+            заявку</button>
+        </nav>
+      </div>
+    </header>
+
+    <main class="flex-1 flex flex-col items-center">
+
+      <!-- Hero Section -->
+      <section class="w-full px-4 py-16 md:py-24 max-w-7xl mx-auto hero-gradient rounded-b-3xl">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div class="flex flex-col gap-6 lg:gap-8 order-2 lg:order-1">
+            <div class="flex flex-col gap-4">
+              <span
+                class="w-fit px-3 py-1 rounded-full bg-primary/10 dark:bg-primary/20 text-primary font-bold text-xs uppercase tracking-wider">Финтех
+                решение №1</span>
+              <h1
+                class="text-text-light dark:text-white text-4xl sm:text-5xl lg:text-[3.5rem] font-black leading-[1.1] tracking-tight">
+                Интернет-эквайринг для <span class="text-primary">вашего бизнеса</span>
+              </h1>
+            </div>
+            <!-- Крупные цифры — рекомендация маркетолога №1 -->
+            <div class="grid grid-cols-3 gap-4 py-2">
+              <div
+                class="flex flex-col gap-1 p-4 rounded-2xl bg-white dark:bg-surface-dark shadow-md border border-border-light dark:border-border-dark">
+                <span class="stat-number text-3xl sm:text-4xl font-black">от 1%</span>
+                <span class="text-text-secondary-light dark:text-text-secondary-dark text-sm font-medium">ставка</span>
+              </div>
+              <div
+                class="flex flex-col gap-1 p-4 rounded-2xl bg-white dark:bg-surface-dark shadow-md border border-border-light dark:border-border-dark">
+                <span class="stat-number text-3xl sm:text-4xl font-black">24 ч</span>
+                <span
+                  class="text-text-secondary-light dark:text-text-secondary-dark text-sm font-medium">подключение</span>
+              </div>
+              <div
+                class="flex flex-col gap-1 p-4 rounded-2xl bg-white dark:bg-surface-dark shadow-md border border-border-light dark:border-border-dark">
+                <span class="stat-number text-3xl sm:text-4xl font-black">T+1</span>
+                <span
+                  class="text-text-secondary-light dark:text-text-secondary-dark text-sm font-medium">зачисление</span>
+              </div>
+            </div>
+            <div class="flex flex-col sm:flex-row gap-4">
+              <button onclick="openModal()"
+                class="flex items-center justify-center rounded-lg h-12 px-8 bg-primary hover:bg-primary-dark transition-all text-white text-base font-bold shadow-xl shadow-primary/25 hover:shadow-primary/40 transform hover:-translate-y-0.5">
+                <span>Подключить сейчас</span>
+                <span class="material-symbols-outlined ml-2 text-[20px]">arrow_forward</span>
+              </button>
+              <a href="#tariffs"
+                class="flex items-center justify-center rounded-lg h-12 px-8 bg-surface-light dark:bg-surface-dark border border-border-light dark:border-border-dark hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors text-text-light dark:text-text-dark text-base font-bold no-underline">
+                <span>Узнать тарифы</span>
+              </a>
+            </div>
+            <div class="flex flex-wrap items-center gap-4 pt-2 opacity-80">
+              <div
+                class="flex items-center gap-2 text-xs font-medium text-text-secondary-light dark:text-text-secondary-dark">
+                <span class="material-symbols-outlined text-primary text-[18px]">check_circle</span><span>0₽
+                  подключение</span>
+              </div>
+              <div
+                class="flex items-center gap-2 text-xs font-medium text-text-secondary-light dark:text-text-secondary-dark">
+                <span class="material-symbols-outlined text-primary text-[18px]">check_circle</span><span>54-ФЗ</span>
+              </div>
+              <div
+                class="flex items-center gap-2 text-xs font-medium text-text-secondary-light dark:text-text-secondary-dark">
+                <span class="material-symbols-outlined text-primary text-[18px]">check_circle</span><span>СБП</span>
+              </div>
+              <div
+                class="flex items-center gap-2 text-xs font-medium text-text-secondary-light dark:text-text-secondary-dark">
+                <span
+                  class="material-symbols-outlined text-primary text-[18px]">check_circle</span><span>3D-Secure</span>
+              </div>
+            </div>
+          </div>
+          <div class="order-1 lg:order-2 relative group">
+            <div
+              class="absolute -inset-1 bg-gradient-to-r from-primary to-accent rounded-xl blur opacity-25 group-hover:opacity-40 transition duration-1000 group-hover:duration-200">
+            </div>
+            <div
+              class="relative w-full aspect-[4/3] rounded-xl overflow-hidden shadow-2xl bg-surface-dark/5 dark:bg-surface-light/5">
+              <img alt="Платёжная форма AcquirinPro" class="w-full h-full object-cover"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBFAQnUXOAXndmQUa4c4tDsS-jGHedNGNozKJQ-QLLusgD9tu5THO1FWFKbYePeM1UQ1zzEObl-s8l55k59omfN7dipVsD6wpPJwa9789sYVOuNWb80Yn_epML426_AIE76KqJ3Puw3a8YgoKvu9X4pskYzxX-DebQM5S3iJyTObazMIIrhzCkMrxTcIKkqZV4DB8xq95RSKeX9hgzQuQ6Mt2iMRGSw4E79TGm2CQMilSJhsUeAIcaafh2gzUFBF22dln9WYqQmzrE" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Trust Signals -->
+      <section
+        class="w-full border-y border-border-light dark:border-border-dark bg-surface-light dark:bg-surface-dark/50">
+        <div class="max-w-7xl mx-auto px-4 py-8 flex flex-col md:flex-row items-center justify-between gap-8">
+          <p class="text-sm font-semibold text-text-secondary-light dark:text-text-secondary-dark whitespace-nowrap">
+            Принимаем все виды оплаты:</p>
+          <div
+            class="flex flex-wrap justify-center items-center gap-8 md:gap-12 opacity-60 hover:opacity-100 grayscale hover:grayscale-0 transition-all duration-500">
+            <div class="h-8 flex items-center"><span
+                class="text-2xl font-black italic text-blue-800 dark:text-blue-500 tracking-tighter">VISA</span></div>
+            <div class="h-8 flex items-center gap-1">
+              <div class="size-6 rounded-full bg-red-500 opacity-80"></div>
+              <div class="size-6 rounded-full bg-yellow-500 opacity-80 -ml-3"></div>
+            </div>
+            <div
+              class="h-8 flex items-center bg-green-600 dark:bg-green-500 text-white px-2 py-0.5 rounded italic font-bold tracking-widest text-sm">
+              МИР</div>
+            <div class="h-8 flex items-center text-sm font-bold text-gray-500 dark:text-gray-400">СБП</div>
+            <div class="h-8 flex items-center text-xs font-semibold text-gray-400">UnionPay</div>
+            <div class="h-8 flex items-center text-xs font-semibold text-gray-400">JCB</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Features Grid -->
+      <section id="features" class="w-full px-4 py-20 max-w-7xl mx-auto reveal">
+        <div class="flex flex-col gap-3 mb-12">
+          <h2 class="text-text-light dark:text-white text-3xl md:text-4xl font-black leading-tight">Почему выбирают нас
+          </h2>
+          <p class="text-text-secondary-light dark:text-text-secondary-dark text-lg max-w-2xl">Надёжный эквайринг с
+            лучшими условиями для роста вашего бизнеса.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div
+            class="group flex flex-col gap-4 p-8 rounded-2xl bg-white dark:bg-surface-dark border border-transparent hover:border-primary/20 transition-all duration-300 hover:shadow-lg hover:shadow-primary/5">
+            <div
+              class="size-14 rounded-xl bg-primary/10 text-primary flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+              <span class="material-symbols-outlined text-[32px]">percent</span>
+            </div>
+            <h3 class="text-text-light dark:text-white text-xl font-bold">Комиссия от 1%</h3>
+            <p class="text-text-secondary-light dark:text-text-secondary-dark leading-relaxed">Выгодные ставки для
+              любого оборота без скрытых платежей и абонентской платы.</p>
+          </div>
+          <div
+            class="group flex flex-col gap-4 p-8 rounded-2xl bg-white dark:bg-surface-dark border border-transparent hover:border-primary/20 transition-all duration-300 hover:shadow-lg hover:shadow-primary/5">
+            <div
+              class="size-14 rounded-xl bg-primary/10 text-primary flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+              <span class="material-symbols-outlined text-[32px]">bolt</span>
+            </div>
+            <h3 class="text-text-light dark:text-white text-xl font-bold">Внедрение за 30 минут</h3>
+            <p class="text-text-secondary-light dark:text-text-secondary-dark leading-relaxed">Быстрая интеграция с
+              любой CMS и платформой. Подключение за 24 часа.</p>
+          </div>
+          <div
+            class="group flex flex-col gap-4 p-8 rounded-2xl bg-white dark:bg-surface-dark border border-transparent hover:border-primary/20 transition-all duration-300 hover:shadow-lg hover:shadow-primary/5">
+            <div
+              class="size-14 rounded-xl bg-primary/10 text-primary flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+              <span class="material-symbols-outlined text-[32px]">currency_ruble</span>
+            </div>
+            <h3 class="text-text-light dark:text-white text-xl font-bold">Деньги на следующий день</h3>
+            <p class="text-text-secondary-light dark:text-text-secondary-dark leading-relaxed">Зачисление средств на
+              расчётный счёт T+1. Быстрые выплаты без задержек.</p>
+          </div>
+          <div
+            class="group flex flex-col gap-4 p-8 rounded-2xl bg-white dark:bg-surface-dark border border-transparent hover:border-primary/20 transition-all duration-300 hover:shadow-lg hover:shadow-primary/5">
+            <div
+              class="size-14 rounded-xl bg-primary/10 text-primary flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+              <span class="material-symbols-outlined text-[32px]">shield</span>
+            </div>
+            <h3 class="text-text-light dark:text-white text-xl font-bold">Безопасность PCI DSS</h3>
+            <p class="text-text-secondary-light dark:text-text-secondary-dark leading-relaxed">3D-Secure, EMV 3DS (Mir
+              Accept 2.0). Полное соответствие стандартам безопасности.</p>
+          </div>
+          <div
+            class="group flex flex-col gap-4 p-8 rounded-2xl bg-white dark:bg-surface-dark border border-transparent hover:border-primary/20 transition-all duration-300 hover:shadow-lg hover:shadow-primary/5">
+            <div
+              class="size-14 rounded-xl bg-primary/10 text-primary flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+              <span class="material-symbols-outlined text-[32px]">public</span>
+            </div>
+            <h3 class="text-text-light dark:text-white text-xl font-bold">Широкая география</h3>
+            <p class="text-text-secondary-light dark:text-text-secondary-dark leading-relaxed">РФ, СНГ, Европа, Азия.
+              Российские и зарубежные карты в одной платёжной форме.</p>
+          </div>
+          <div
+            class="group flex flex-col gap-4 p-8 rounded-2xl bg-white dark:bg-surface-dark border border-transparent hover:border-primary/20 transition-all duration-300 hover:shadow-lg hover:shadow-primary/5">
+            <div
+              class="size-14 rounded-xl bg-primary/10 text-primary flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+              <span class="material-symbols-outlined text-[32px]">support_agent</span>
+            </div>
+            <h3 class="text-text-light dark:text-white text-xl font-bold">Личный кабинет и аналитика</h3>
+            <p class="text-text-secondary-light dark:text-text-secondary-dark leading-relaxed">Управление платежами,
+              отчёты и аналитика. Персональный менеджер на связи.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Tariffs — Рекомендация маркетолога №2: сразу после преимуществ -->
+      <section id="tariffs"
+        class="w-full px-4 py-20 bg-surface-light dark:bg-surface-dark/50 border-y border-border-light dark:border-border-dark reveal">
+        <div class="max-w-7xl mx-auto">
+          <div class="flex flex-col gap-3 mb-12 text-center">
+            <h2 class="text-text-light dark:text-white text-3xl md:text-4xl font-black leading-tight">Тарифы</h2>
+            <p class="text-text-secondary-light dark:text-text-secondary-dark text-lg max-w-2xl mx-auto">Прозрачные
+              условия — только процент за приём платежа, без скрытых комиссий и абонентской платы.</p>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+            <!-- Tariff 1: СБП -->
+            <div
+              class="tariff-card flex flex-col gap-6 p-8 rounded-2xl bg-white dark:bg-surface-dark border border-border-light dark:border-border-dark transition-all duration-300 cursor-default">
+              <div class="flex items-center gap-3">
+                <div class="size-12 rounded-xl bg-green-500/10 text-green-600 flex items-center justify-center">
+                  <span class="material-symbols-outlined text-[28px]">qr_code_2</span>
+                </div>
+                <div>
+                  <h3 class="text-text-light dark:text-white text-lg font-bold">Оплата по СБП</h3>
+                  <p class="text-text-secondary-light dark:text-text-secondary-dark text-sm">Система Быстрых Платежей
+                  </p>
+                </div>
+              </div>
+              <div class="flex items-baseline gap-1">
+                <span class="stat-number text-5xl font-black">2%</span>
+                <span class="text-text-secondary-light dark:text-text-secondary-dark text-sm">за транзакцию</span>
+              </div>
+              <ul class="flex flex-col gap-2 text-sm text-text-secondary-light dark:text-text-secondary-dark">
+                <li class="flex items-start gap-2"><span
+                    class="material-symbols-outlined text-green-500 text-[18px] mt-0.5">check</span>Максимальная
+                  экономия</li>
+                <li class="flex items-start gap-2"><span
+                    class="material-symbols-outlined text-green-500 text-[18px] mt-0.5">check</span>Моментальное
+                  зачисление</li>
+                <li class="flex items-start gap-2"><span
+                    class="material-symbols-outlined text-green-500 text-[18px] mt-0.5">check</span>Без абонентской
+                  платы</li>
+              </ul>
+              <button onclick="openModal()"
+                class="mt-auto rounded-lg h-11 bg-green-600 hover:bg-green-700 transition-colors text-white font-bold text-sm shadow-md">Подключить
+                СБП</button>
+            </div>
+            <!-- Tariff 2: Cards — Popular -->
+            <div
+              class="tariff-card tariff-popular flex flex-col gap-6 p-8 rounded-2xl bg-white dark:bg-surface-dark transition-all duration-300 cursor-default">
+              <div class="flex items-center gap-3">
+                <div class="size-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center">
+                  <span class="material-symbols-outlined text-[28px]">credit_card</span>
+                </div>
+                <div>
+                  <h3 class="text-text-light dark:text-white text-lg font-bold">Банковские карты</h3>
+                  <p class="text-text-secondary-light dark:text-text-secondary-dark text-sm">Visa, MasterCard, МИР</p>
+                </div>
+              </div>
+              <div class="flex items-baseline gap-1">
+                <span class="stat-number text-5xl font-black">2.7%</span>
+                <span class="text-text-secondary-light dark:text-text-secondary-dark text-sm">за транзакцию</span>
+              </div>
+              <ul class="flex flex-col gap-2 text-sm text-text-secondary-light dark:text-text-secondary-dark">
+                <li class="flex items-start gap-2"><span
+                    class="material-symbols-outlined text-primary text-[18px] mt-0.5">check</span>Все популярные карты
+                </li>
+                <li class="flex items-start gap-2"><span
+                    class="material-symbols-outlined text-primary text-[18px] mt-0.5">check</span>3D-Secure</li>
+                <li class="flex items-start gap-2"><span
+                    class="material-symbols-outlined text-primary text-[18px] mt-0.5">check</span>Удобная платёжная
+                  форма</li>
+                <li class="flex items-start gap-2"><span
+                    class="material-symbols-outlined text-primary text-[18px] mt-0.5">check</span>Зачисление T+1</li>
+              </ul>
+              <button onclick="openModal()"
+                class="mt-auto rounded-lg h-11 bg-primary hover:bg-primary-dark transition-colors text-white font-bold text-sm shadow-lg shadow-primary/20">Подключить</button>
+            </div>
+            <!-- Tariff 3: International -->
+            <div
+              class="tariff-card flex flex-col gap-6 p-8 rounded-2xl bg-white dark:bg-surface-dark border border-border-light dark:border-border-dark transition-all duration-300 cursor-default">
+              <div class="flex items-center gap-3">
+                <div class="size-12 rounded-xl bg-purple-500/10 text-purple-600 flex items-center justify-center">
+                  <span class="material-symbols-outlined text-[28px]">language</span>
+                </div>
+                <div>
+                  <h3 class="text-text-light dark:text-white text-lg font-bold">Международные карты</h3>
+                  <p class="text-text-secondary-light dark:text-text-secondary-dark text-sm">AmEx, UnionPay, JCB, Diners
+                  </p>
+                </div>
+              </div>
+              <div class="flex items-baseline gap-1">
+                <span class="stat-number text-5xl font-black">9%</span>
+                <span class="text-text-secondary-light dark:text-text-secondary-dark text-sm">за транзакцию</span>
+              </div>
+              <ul class="flex flex-col gap-2 text-sm text-text-secondary-light dark:text-text-secondary-dark">
+                <li class="flex items-start gap-2"><span
+                    class="material-symbols-outlined text-purple-500 text-[18px] mt-0.5">check</span>Платежи из-за
+                  рубежа</li>
+                <li class="flex items-start gap-2"><span
+                    class="material-symbols-outlined text-purple-500 text-[18px] mt-0.5">check</span>Единая платёжная
+                  форма</li>
+                <li class="flex items-start gap-2"><span
+                    class="material-symbols-outlined text-purple-500 text-[18px] mt-0.5">check</span>Широкая география
+                </li>
+              </ul>
+              <button onclick="openModal()"
+                class="mt-auto rounded-lg h-11 bg-purple-600 hover:bg-purple-700 transition-colors text-white font-bold text-sm shadow-md">Подключить</button>
+            </div>
+          </div>
+          <div class="text-center">
+            <button onclick="openModal()"
+              class="inline-flex items-center justify-center rounded-xl h-14 px-10 bg-gradient-to-r from-primary to-accent hover:from-primary-dark hover:to-primary transition-all text-white text-lg font-bold shadow-xl shadow-primary/25 hover:shadow-primary/40 transform hover:-translate-y-0.5">
+              <span class="material-symbols-outlined mr-2 text-[24px]">calculate</span> Получить индивидуальное
+              предложение
+            </button>
+            <p class="text-text-secondary-light dark:text-text-secondary-dark text-sm mt-4">Индивидуальные условия для
+              оборота от 1 млн ₽/мес</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- About Section -->
+      <section id="about" class="w-full py-20 max-w-7xl mx-auto px-4 reveal">
+        <div class="flex flex-col lg:flex-row gap-12 lg:gap-20 items-center">
+          <div class="w-full lg:w-1/2 relative">
+            <div class="absolute -top-4 -left-4 w-24 h-24 bg-primary/20 rounded-full blur-2xl"></div>
+            <div class="absolute -bottom-4 -right-4 w-32 h-32 bg-accent/20 rounded-full blur-2xl"></div>
+            <div class="relative rounded-2xl overflow-hidden shadow-2xl aspect-[4/3]">
+              <img alt="Офис AcquirinPro"
+                class="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAPyFxYIl65TwP1_gzQudrqEhArF1xZamOWbBNaC2tM0H3yOLbieuqBSzB_PGRZrqAY4HF5UUcH8PSp8bChCsiCA-TRf111Kw9K8eR4tQg4cD7GkwEFVLbXlNxjgi7XGJ8QsT7pviNLuJzVCQa-G5jqP38qeAVgQ4WlsITmNqS-ID44GUbQCmf_baA5yOCnU7GXo8AxKuf5dwKDi6WOc2EcRqN2xIrzRTvS-9QmGDoy-Wp2XWA85Nn7BDXU_Z83IQhnuARFLwfrYFw" />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-8">
+                <div class="text-white">
+                  <p class="font-bold text-2xl">Стабильный приём</p>
+                  <p class="opacity-80 text-sm">через несколько платёжных шлюзов</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="w-full lg:w-1/2 flex flex-col gap-6">
+            <h2 class="text-text-light dark:text-white text-3xl md:text-4xl font-black leading-tight">О компании</h2>
+            <p class="text-text-secondary-light dark:text-text-secondary-dark text-lg leading-relaxed">Наша миссия —
+              упростить приём платежей для бизнеса любого масштаба. Мы создаём надёжные финансовые технологии, которые
+              помогают предпринимателям сосредоточиться на развитии своего дела.</p>
+            <p class="text-text-secondary-light dark:text-text-secondary-dark text-base leading-relaxed">Комплексные
+              решения: от классического торгового эквайринга до сложных интеграций для e-commerce и маркетплейсов.
+              Оплата российскими и зарубежными картами в одной платёжной форме.</p>
+            <div class="grid grid-cols-2 gap-6 py-4">
+              <div>
+                <h4 class="text-2xl font-bold text-primary">99.9%</h4>
+                <p class="text-sm text-text-secondary-light dark:text-text-secondary-dark">Uptime серверов</p>
+              </div>
+              <div>
+                <h4 class="text-2xl font-bold text-primary">150+</h4>
+                <p class="text-sm text-text-secondary-light dark:text-text-secondary-dark">Интеграций с CMS</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA Section -->
+      <section class="w-full px-4 py-24 max-w-4xl mx-auto text-center reveal">
+        <div
+          class="rounded-3xl bg-gradient-to-br from-primary-dark to-primary p-8 md:p-12 lg:p-16 text-white shadow-2xl relative overflow-hidden">
+          <div class="absolute top-0 right-0 -mr-16 -mt-16 w-64 h-64 bg-white opacity-10 rounded-full blur-3xl"></div>
+          <div class="absolute bottom-0 left-0 -ml-16 -mb-16 w-64 h-64 bg-black opacity-10 rounded-full blur-3xl"></div>
+          <div class="relative z-10 flex flex-col gap-6 items-center">
+            <h2 class="text-3xl md:text-4xl font-black leading-tight">Готовы масштабировать бизнес?</h2>
+            <p class="text-blue-100 text-lg md:text-xl max-w-2xl">Подключите AcquirinPro сегодня. Ставка от 1%,
+              внедрение за 30 минут, деньги на счёте на следующий день.</p>
+            <div class="flex flex-col sm:flex-row gap-4 mt-4 w-full justify-center">
+              <button onclick="openModal()"
+                class="bg-white text-primary hover:bg-gray-100 transition-colors h-12 px-8 rounded-lg font-bold text-base shadow-lg w-full sm:w-auto">Оставить
+                заявку</button>
+              <a href="tel:88003335110"
+                class="bg-primary-dark/30 hover:bg-primary-dark/50 text-white border border-white/20 transition-colors h-12 px-8 rounded-lg font-bold text-base w-full sm:w-auto flex items-center justify-center no-underline">
+                <span class="material-symbols-outlined mr-2 text-[20px]">call</span> 8-800-333-51-10
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer id="contacts"
+      class="w-full bg-surface-light dark:bg-surface-dark border-t border-border-light dark:border-border-dark pt-16 pb-8">
+      <div class="max-w-7xl mx-auto px-4 flex flex-col gap-12">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div class="flex flex-col gap-4">
+            <div class="overflow-hidden h-20">
+              <img src="logo.png" alt="ProOnline" class="h-32 w-auto object-contain -mt-8" />
+            </div>
+            <p class="text-sm text-text-secondary-light dark:text-text-secondary-dark leading-relaxed">Современные
+              платёжные решения для вашего бизнеса. Безопасно, быстро, надёжно.</p>
+          </div>
+          <div class="flex flex-col gap-4">
+            <h4 class="text-text-light dark:text-white font-bold">Продукты</h4>
+            <div class="flex flex-col gap-2">
+              <a class="text-sm text-text-secondary-light dark:text-text-secondary-dark hover:text-primary transition-colors"
+                href="#">Интернет-эквайринг</a>
+              <a class="text-sm text-text-secondary-light dark:text-text-secondary-dark hover:text-primary transition-colors"
+                href="#">Торговый эквайринг</a>
+              <a class="text-sm text-text-secondary-light dark:text-text-secondary-dark hover:text-primary transition-colors"
+                href="#">Онлайн-кассы</a>
+              <a class="text-sm text-text-secondary-light dark:text-text-secondary-dark hover:text-primary transition-colors"
+                href="#">Выплаты на карты</a>
+            </div>
+          </div>
+          <div class="flex flex-col gap-4">
+            <h4 class="text-text-light dark:text-white font-bold">Контакты</h4>
+            <div class="flex flex-col gap-2">
+              <a href="tel:88003335110"
+                class="text-sm text-text-secondary-light dark:text-text-secondary-dark hover:text-primary transition-colors font-semibold">8-800-333-51-10</a>
+              <a href="mailto:pos@pro-online.ru"
+                class="text-sm text-text-secondary-light dark:text-text-secondary-dark hover:text-primary transition-colors">pos@pro-online.ru</a>
+              <p class="text-sm text-text-secondary-light dark:text-text-secondary-dark">ПН-ПТ 10:00-19:00 МСК</p>
+            </div>
+          </div>
+          <div class="flex flex-col gap-4">
+            <h4 class="text-text-light dark:text-white font-bold">Юридическая информация</h4>
+            <p class="text-xs text-text-secondary-light dark:text-text-secondary-dark leading-relaxed">ООО «ПРООНЛАЙН»
+            </p>
+            <p class="text-xs text-text-secondary-light dark:text-text-secondary-dark leading-relaxed">453 505, Респ.
+              Башкортостан, м. р-н Белорецкий, г. Белорецк, ул. 50 Лет Октября, д. 50, кв. 49</p>
+          </div>
+        </div>
+        <div
+          class="border-t border-border-light dark:border-border-dark pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+          <p class="text-xs text-text-secondary-light dark:text-text-secondary-dark text-center md:text-left">
+            © ProOnline, ООО «ПРООНЛАЙН», 2025. Разработано в <a href="#"
+              class="hover:text-primary transition-colors">IT Techno Media</a>
+          </p>
+          <div class="flex flex-wrap gap-4 md:gap-6">
+            <a class="text-xs text-text-secondary-light dark:text-text-secondary-dark hover:text-primary transition-colors"
+              href="#" onclick="openLegalModal('modal-consumer'); return false;">Права потребителя</a>
+            <a class="text-xs text-text-secondary-light dark:text-text-secondary-dark hover:text-primary transition-colors"
+              href="https://disk.yandex.ru/d/QZS8PfxV5elMNw" target="_blank">Публичная оферта</a>
+            <a class="text-xs text-text-secondary-light dark:text-text-secondary-dark hover:text-primary transition-colors"
+              href="#" onclick="openLegalModal('modal-privacy'); return false;">Согласие на обработку ПД</a>
+            <a class="text-xs text-text-secondary-light dark:text-text-secondary-dark hover:text-primary transition-colors"
+              href="#" onclick="openLegalModal('modal-security'); return false;">Безопасность платежей</a>
+            <a class="text-xs text-text-secondary-light dark:text-text-secondary-dark hover:text-primary transition-colors"
+              href="#" onclick="openLegalModal('modal-recurring'); return false;">Рекуррентные платежи</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- Modal Form — Рекомендация маркетолога №3: простая форма (Имя + Телефон) -->
+  <div id="modal-form"
+    class="modal-backdrop fixed inset-0 z-[100] flex items-center justify-center bg-black/50 backdrop-blur-sm p-4">
+    <div class="modal-content bg-white dark:bg-surface-dark rounded-2xl shadow-2xl w-full max-w-md p-8 relative">
+      <button onclick="closeModal()"
+        class="absolute top-4 right-4 text-text-secondary-light dark:text-text-secondary-dark hover:text-text-light dark:hover:text-white transition-colors">
+        <span class="material-symbols-outlined text-[24px]">close</span>
+      </button>
+      <div class="flex flex-col gap-6">
+        <div class="flex flex-col gap-2">
+          <h3 class="text-text-light dark:text-white text-2xl font-black">Оставить заявку</h3>
+          <p class="text-text-secondary-light dark:text-text-secondary-dark text-sm">Заполните форму и мы перезвоним вам
+            в течение 15 минут</p>
+        </div>
+        <form id="lead-form" onsubmit="submitForm(event)" class="flex flex-col gap-4">
+          <div class="flex flex-col gap-1.5">
+            <label for="name" class="text-sm font-medium text-text-light dark:text-text-dark">Имя</label>
+            <input type="text" id="name" name="name" required placeholder="Ваше имя"
+              class="h-11 px-4 rounded-lg border border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-sm" />
+          </div>
+          <div class="flex flex-col gap-1.5">
+            <label for="phone" class="text-sm font-medium text-text-light dark:text-text-dark">Телефон</label>
+            <input type="tel" id="phone" name="phone" required placeholder="+7 (___) ___-__-__"
+              class="h-11 px-4 rounded-lg border border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-sm" />
+          </div>
+          <label class="flex items-start gap-2 cursor-pointer">
+            <input type="checkbox" required
+              class="mt-1 rounded border-border-light text-primary focus:ring-primary/20" />
+            <span class="text-xs text-text-secondary-light dark:text-text-secondary-dark">Даю <a href="#"
+                class="text-primary hover:underline">согласие на обработку персональных данных</a></span>
+          </label>
+          <button type="submit"
+            class="h-12 rounded-lg bg-primary hover:bg-primary-dark transition-all text-white font-bold text-base shadow-lg shadow-primary/20 hover:shadow-primary/40 transform hover:-translate-y-0.5">Отправить
+            заявку</button>
+        </form>
+        <div id="form-success" class="hidden flex flex-col items-center gap-3 py-4">
+          <div
+            class="size-16 rounded-full bg-green-100 dark:bg-green-900/30 text-green-600 flex items-center justify-center">
+            <span class="material-symbols-outlined text-[32px]">check_circle</span>
+          </div>
+          <h4 class="text-text-light dark:text-white text-xl font-bold">Заявка отправлена!</h4>
+          <p class="text-text-secondary-light dark:text-text-secondary-dark text-sm text-center">Мы перезвоним вам в
+            ближайшее время</p>
+          <button onclick="closeModal()"
+            class="mt-2 h-10 px-6 rounded-lg border border-border-light dark:border-border-dark text-text-light dark:text-text-dark font-medium text-sm hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">Закрыть</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: Права потребителя -->
+  <div id="modal-consumer"
+    class="modal-backdrop fixed inset-0 z-[100] flex items-center justify-center bg-black/50 backdrop-blur-sm p-4">
+    <div
+      class="modal-content bg-white dark:bg-surface-dark rounded-2xl shadow-2xl w-full max-w-2xl p-8 relative max-h-[85vh] overflow-y-auto">
+      <button onclick="closeLegalModal('modal-consumer')"
+        class="absolute top-4 right-4 text-text-secondary-light dark:text-text-secondary-dark hover:text-text-light dark:hover:text-white transition-colors">
+        <span class="material-symbols-outlined text-[24px]">close</span>
+      </button>
+      <h3 class="text-text-light dark:text-white text-xl font-black mb-4">Права потребителя</h3>
+      <div class="text-sm text-text-secondary-light dark:text-text-secondary-dark leading-relaxed flex flex-col gap-4">
+        <div>
+          <h4 class="font-bold text-text-light dark:text-white mb-2">Отказ от услуги</h4>
+          <p>Право потребителя на расторжение договора об оказании услуги регламентируется статьей 32 Закона РФ от
+            07.02.1992 N 2300-1 «О защите прав потребителей»:</p>
+        </div>
+        <ul class="list-disc pl-5 flex flex-col gap-2">
+          <li>Потребитель вправе отказаться от исполнения договора о выполнении работ (оказании услуг) в любое время,
+            уплатив исполнителю часть цены пропорционально части оказанной услуги до получения извещения о расторжении
+            указанного договора и возместив исполнителю расходы, произведённые им до этого момента в целях исполнения
+            договора, если они не входят в указанную часть цены услуги.</li>
+          <li>Потребитель при обнаружении недостатков оказанной услуги в соответствии со статьей 29 Закона РФ от
+            07.02.1992 N 2300-1 «О защите прав потребителей» вправе по своему выбору потребовать:
+            <ul class="list-[circle] pl-5 mt-1 flex flex-col gap-1">
+              <li>безвозмездного устранения недостатков;</li>
+              <li>соответствующего уменьшения цены;</li>
+              <li>безвозмездного изготовления другой вещи из однородного материала такого же качества или повторного
+                выполнения работы;</li>
+              <li>возмещения понесённых им расходов по устранению недостатков своими силами или третьими лицами.</li>
+            </ul>
+          </li>
+          <li>Потребитель вправе предъявлять требования, связанные с недостатками оказанной услуги, если они обнаружены
+            в течение гарантийного срока, а при его отсутствии в разумный срок, в пределах двух лет со дня принятия
+            оказанной услуги.</li>
+          <li>Исполнитель отвечает за недостатки услуги, на которую не установлен гарантийный срок, если потребитель
+            докажет, что они возникли до её принятия им или по причинам, возникшим до этого момента.</li>
+        </ul>
+
+        <div class="mt-2">
+          <h4 class="font-bold text-text-light dark:text-white mb-2">Возврат товара</h4>
+          <ul class="list-disc pl-5 flex flex-col gap-2">
+            <li>Потребитель вправе отказаться от товара в любое время до его передачи, а после передачи товара — в
+              течение семи дней.</li>
+            <li>Возврат товара надлежащего качества возможен в случае, если сохранены его товарный вид, потребительские
+              свойства, а также документ, подтверждающий факт и условия покупки указанного товара.</li>
+            <li>Потребитель не вправе отказаться от товара надлежащего качества, имеющего индивидуально-определённые
+              свойства, если указанный товар может быть использован исключительно приобретающим его человеком.</li>
+            <li>При отказе потребителя от товара продавец должен возвратить ему денежную сумму, уплаченную потребителем
+              по договору, за исключением расходов продавца на доставку от потребителя возвращённого товара, не позднее
+              чем через десять дней со дня предъявления потребителем соответствующего требования.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: Безопасность платежей -->
+  <div id="modal-security"
+    class="modal-backdrop fixed inset-0 z-[100] flex items-center justify-center bg-black/50 backdrop-blur-sm p-4">
+    <div
+      class="modal-content bg-white dark:bg-surface-dark rounded-2xl shadow-2xl w-full max-w-2xl p-8 relative max-h-[85vh] overflow-y-auto">
+      <button onclick="closeLegalModal('modal-security')"
+        class="absolute top-4 right-4 text-text-secondary-light dark:text-text-secondary-dark hover:text-text-light dark:hover:text-white transition-colors">
+        <span class="material-symbols-outlined text-[24px]">close</span>
+      </button>
+      <h3 class="text-text-light dark:text-white text-xl font-black mb-4">Безопасность платежей</h3>
+      <div class="text-sm text-text-secondary-light dark:text-text-secondary-dark leading-relaxed flex flex-col gap-4">
+        <p>Для дополнительной аутентификации Держателя карты используется протокол <strong
+            class="text-text-light dark:text-white">3D-Secure</strong> для VISA и Mastercard и протокол <strong
+            class="text-text-light dark:text-white">EMV 3DS (Mir Accept 2.0)</strong> для карт МИР.</p>
+        <p>Если Эмитент поддерживает данную технологию, Вы будете перенаправлены на его сервер для ввода дополнительных
+          реквизитов платежа.</p>
+        <p>Для протокола EMV 3DS (Mir Accept 2.0) может отсутствовать отдельная страница для ввода дополнительной
+          информации для подтверждения платежа в случае выполнения автоматизированной аутентификации на стороне эмитента
+          карты.</p>
+        <div class="mt-2 p-4 rounded-xl bg-primary/5 dark:bg-primary/10 border border-primary/10">
+          <h4 class="font-bold text-text-light dark:text-white mb-2 flex items-center gap-2"><span
+              class="material-symbols-outlined text-primary text-[20px]">verified_user</span> Стандарт PCI DSS</h4>
+          <p>Безопасность ваших транзакций гарантирована стандартами PCI DSS. Все данные карт передаются в зашифрованном
+            виде и не хранятся на наших серверах.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: Согласие на обработку ПД -->
+  <div id="modal-privacy"
+    class="modal-backdrop fixed inset-0 z-[100] flex items-center justify-center bg-black/50 backdrop-blur-sm p-4">
+    <div
+      class="modal-content bg-white dark:bg-surface-dark rounded-2xl shadow-2xl w-full max-w-2xl p-8 relative max-h-[85vh] overflow-y-auto">
+      <button onclick="closeLegalModal('modal-privacy')"
+        class="absolute top-4 right-4 text-text-secondary-light dark:text-text-secondary-dark hover:text-text-light dark:hover:text-white transition-colors">
+        <span class="material-symbols-outlined text-[24px]">close</span>
+      </button>
+      <h3 class="text-text-light dark:text-white text-xl font-black mb-4">Согласие на обработку персональных данных</h3>
+      <div class="text-sm text-text-secondary-light dark:text-text-secondary-dark leading-relaxed flex flex-col gap-4">
+        <p>Отправляя заявку через формы на сайте, вы даёте своё согласие на обработку персональных данных в соответствии
+          с <strong class="text-text-light dark:text-white">Федеральным законом от 27.07.2006 № 152-ФЗ «О персональных
+            данных»</strong>.</p>
+        <div>
+          <h4 class="font-bold text-text-light dark:text-white mb-2">Оператор персональных данных</h4>
+          <p>ООО «ПРООНЛАЙН»<br>Юридический адрес: 453 505, Респ. Башкортостан, м. р-н Белорецкий, городское поселение
+            Город Белорецк, г. Белорецк, ул. 50 Лет Октября, д. 50, кв. 49</p>
+        </div>
+        <div>
+          <h4 class="font-bold text-text-light dark:text-white mb-2">Перечень обрабатываемых данных</h4>
+          <ul class="list-disc pl-5 flex flex-col gap-1">
+            <li>Фамилия, имя, отчество</li>
+            <li>Номер телефона</li>
+            <li>Адрес электронной почты</li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-bold text-text-light dark:text-white mb-2">Цели обработки</h4>
+          <ul class="list-disc pl-5 flex flex-col gap-1">
+            <li>Связь с клиентом для оказания услуг</li>
+            <li>Информирование об услугах и акциях</li>
+            <li>Заключение и исполнение договоров</li>
+          </ul>
+        </div>
+        <p>Согласие может быть отозвано субъектом персональных данных путём направления письменного заявления на адрес
+          электронной почты: <a href="mailto:pos@pro-online.ru"
+            class="text-primary hover:underline">pos@pro-online.ru</a>.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: Рекуррентные платежи -->
+  <div id="modal-recurring"
+    class="modal-backdrop fixed inset-0 z-[100] flex items-center justify-center bg-black/50 backdrop-blur-sm p-4">
+    <div
+      class="modal-content bg-white dark:bg-surface-dark rounded-2xl shadow-2xl w-full max-w-2xl p-8 relative max-h-[85vh] overflow-y-auto">
+      <button onclick="closeLegalModal('modal-recurring')"
+        class="absolute top-4 right-4 text-text-secondary-light dark:text-text-secondary-dark hover:text-text-light dark:hover:text-white transition-colors">
+        <span class="material-symbols-outlined text-[24px]">close</span>
+      </button>
+      <h3 class="text-text-light dark:text-white text-xl font-black mb-4">Рекуррентные платежи</h3>
+      <div class="text-sm text-text-secondary-light dark:text-text-secondary-dark leading-relaxed flex flex-col gap-4">
+        <div>
+          <h4 class="font-bold text-text-light dark:text-white mb-2">Что такое рекуррентные платежи?</h4>
+          <p>Рекуррентные (автоматические повторяющиеся) платежи — это списания денежных средств с банковской карты
+            клиента, производимые на основании ранее оформленной подписки или согласия на регулярные платежи.</p>
+        </div>
+        <div>
+          <h4 class="font-bold text-text-light dark:text-white mb-2">Условия подключения</h4>
+          <ul class="list-disc pl-5 flex flex-col gap-2">
+            <li>Рекуррентные платежи осуществляются исключительно с согласия плательщика, выраженного путём проведения
+              первого платежа и акцепта условий подписки.</li>
+            <li>При оформлении подписки плательщик подтверждает своё согласие на автоматическое списание средств в
+              указанном размере и с указанной периодичностью.</li>
+            <li>Данные банковской карты при рекуррентных платежах не хранятся на стороне продавца — используется
+              защищённый токен платёжного шлюза.</li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-bold text-text-light dark:text-white mb-2">Отмена подписки</h4>
+          <ul class="list-disc pl-5 flex flex-col gap-2">
+            <li>Плательщик вправе отказаться от рекуррентных платежей в любое время, обратившись к продавцу (поставщику
+              услуг) напрямую или направив запрос на электронную почту: <a href="mailto:pos@pro-online.ru"
+                class="text-primary hover:underline">pos@pro-online.ru</a>.</li>
+            <li>Отмена подписки вступает в силу со следующего расчётного периода. Уже произведённые списания возврату не
+              подлежат, за исключением случаев, предусмотренных законом.</li>
+            <li>Плательщик также может отменить рекуррентные списания, обратившись в свой банк-эмитент с заявлением о
+              запрете автоматических списаний.</li>
+          </ul>
+        </div>
+        <div class="p-4 rounded-xl bg-primary/5 dark:bg-primary/10 border border-primary/10">
+          <h4 class="font-bold text-text-light dark:text-white mb-2 flex items-center gap-2"><span
+              class="material-symbols-outlined text-primary text-[20px]">info</span> Важно</h4>
+          <p>Все рекуррентные платежи обрабатываются через защищённые платёжные шлюзы с использованием протоколов
+            3D-Secure и стандартов PCI DSS. Безопасность ваших данных гарантирована.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Legal modals
+    function openLegalModal(id) {
+      document.getElementById(id).classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeLegalModal(id) {
+      document.getElementById(id).classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    // Close legal modals on backdrop click
+    ['modal-consumer', 'modal-security', 'modal-privacy', 'modal-recurring'].forEach(function (id) {
+      document.getElementById(id).addEventListener('click', function (e) {
+        if (e.target === this) closeLegalModal(id);
+      });
+    });
+
+    // Lead form modal
+    function openModal() {
+      document.getElementById('modal-form').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeModal() {
+      document.getElementById('modal-form').classList.remove('open');
+      document.body.style.overflow = '';
+      // Reset form after close
+      setTimeout(() => {
+        document.getElementById('lead-form').classList.remove('hidden');
+        document.getElementById('lead-form').reset();
+        document.getElementById('form-success').classList.add('hidden');
+      }, 300);
+    }
+    // Close on backdrop click
+    document.getElementById('modal-form').addEventListener('click', function (e) {
+      if (e.target === this) closeModal();
+    });
+    // Close on Escape (all modals)
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') {
+        closeModal();
+        closeLegalModal('modal-consumer');
+        closeLegalModal('modal-security');
+        closeLegalModal('modal-privacy');
+        closeLegalModal('modal-recurring');
+      }
+    });
+
+    // Form submit via Web3Forms (sends to pos@pro-online.ru)
+    async function submitForm(e) {
+      e.preventDefault();
+      const form = document.getElementById('lead-form');
+      const submitBtn = form.querySelector('button[type="submit"]');
+      const origText = submitBtn.innerHTML;
+      submitBtn.innerHTML = '<span class="animate-pulse2">Отправка...</span>';
+      submitBtn.disabled = true;
+
+      try {
+        const response = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            access_key: '471f4bac-b737-4326-8628-9a62ae853a31',
+            subject: 'Новая заявка с сайта ProOnline',
+            from_name: 'ProOnline Website',
+            name: document.getElementById('name').value,
+            phone: document.getElementById('phone').value,
+          })
+        });
+        const data = await response.json();
+        if (data.success) {
+          document.getElementById('lead-form').classList.add('hidden');
+          document.getElementById('form-success').classList.remove('hidden');
+        } else {
+          alert('Ошибка отправки. Позвоните нам: 8-800-333-51-10');
+        }
+      } catch (err) {
+        alert('Ошибка сети. Позвоните нам: 8-800-333-51-10');
+      } finally {
+        submitBtn.innerHTML = origText;
+        submitBtn.disabled = false;
+      }
+    }
+
+    // Mobile menu
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobile-menu');
+      const btn = document.getElementById('burger-btn');
+      menu.classList.toggle('hidden');
+      btn.querySelector('span').textContent = menu.classList.contains('hidden') ? 'menu' : 'close';
+    }
+    function closeMobileMenu() {
+      document.getElementById('mobile-menu').classList.add('hidden');
+      document.getElementById('burger-btn').querySelector('span').textContent = 'menu';
+    }
+
+    // Scroll reveal animations
+    const revealElements = document.querySelectorAll('.reveal');
+    const revealOnScroll = () => {
+      revealElements.forEach(el => {
+        const top = el.getBoundingClientRect().top;
+        if (top < window.innerHeight - 100) el.classList.add('active');
+      });
+    };
+    window.addEventListener('scroll', revealOnScroll);
+    revealOnScroll();
+
+    // Phone mask
+    const phoneInput = document.getElementById('phone');
+    phoneInput.addEventListener('input', function (e) {
+      let v = this.value.replace(/\D/g, '');
+      if (v.length > 0) {
+        if (v[0] === '8') v = '7' + v.slice(1);
+        if (v[0] !== '7') v = '7' + v;
+      }
+      let r = '';
+      if (v.length > 0) r = '+' + v[0];
+      if (v.length > 1) r += ' (' + v.substring(1, 4);
+      if (v.length >= 4) r += ') ' + v.substring(4, 7);
+      if (v.length >= 7) r += '-' + v.substring(7, 9);
+      if (v.length >= 9) r += '-' + v.substring(9, 11);
+      this.value = r;
+    });
+  </script>
+</body>
+
+</html>
