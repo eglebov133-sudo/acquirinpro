@@ -171,8 +171,8 @@
       class="sticky top-0 z-50 w-full bg-surface-light/90 dark:bg-surface-dark/90 backdrop-blur-md border-b border-border-light dark:border-border-dark">
       <div class="px-4 md:px-10 py-3 mx-auto max-w-7xl flex items-center justify-between">
         <a href="#" class="flex items-center no-underline">
-          <img src="logo.png" alt="ProOnline" class="h-28 w-auto"
-            style="margin: -3.5rem 0; clip-path: inset(25% 5% 25% 5%);" />
+          <img src="logo.png" alt="ProOnline" class="h-20 sm:h-28 w-auto"
+            style="margin: -2.5rem 0; clip-path: inset(25% 5% 25% 5%);" srcset="logo_cropped.png 400w, logo.png 800w" />
         </a>
         <div class="hidden md:flex items-center gap-8">
           <nav class="flex items-center gap-6">
@@ -223,7 +223,7 @@
     <main class="flex-1 flex flex-col items-center">
 
       <!-- Hero Section -->
-      <section class="w-full px-4 py-16 md:py-24 max-w-7xl mx-auto hero-gradient rounded-b-3xl">
+      <section class="w-full px-4 py-10 md:py-24 max-w-7xl mx-auto hero-gradient rounded-b-3xl">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div class="flex flex-col gap-6 lg:gap-8 order-2 lg:order-1">
             <div class="flex flex-col gap-4">
@@ -231,28 +231,29 @@
                 class="w-fit px-3 py-1 rounded-full bg-primary/10 dark:bg-primary/20 text-primary font-bold text-xs uppercase tracking-wider">Финтех
                 решение №1</span>
               <h1
-                class="text-text-light dark:text-white text-4xl sm:text-5xl lg:text-[3.5rem] font-black leading-[1.1] tracking-tight">
+                class="text-text-light dark:text-white text-3xl sm:text-5xl lg:text-[3.5rem] font-black leading-[1.1] tracking-tight">
                 Интернет-эквайринг для <span class="text-primary">вашего бизнеса</span>
               </h1>
             </div>
             <!-- Крупные цифры — рекомендация маркетолога №1 -->
-            <div class="grid grid-cols-3 gap-4 py-2">
+            <div class="grid grid-cols-3 gap-2 sm:gap-4 py-2">
               <div
-                class="flex flex-col gap-1 p-4 rounded-2xl bg-white dark:bg-surface-dark shadow-md border border-border-light dark:border-border-dark">
-                <span class="stat-number text-3xl sm:text-4xl font-black">от 1%</span>
-                <span class="text-text-secondary-light dark:text-text-secondary-dark text-sm font-medium">ставка</span>
+                class="flex flex-col gap-1 p-2.5 sm:p-4 rounded-2xl bg-white dark:bg-surface-dark shadow-md border border-border-light dark:border-border-dark">
+                <span class="stat-number text-2xl sm:text-4xl font-black">от 1%</span>
+                <span
+                  class="text-text-secondary-light dark:text-text-secondary-dark text-xs sm:text-sm font-medium">ставка</span>
               </div>
               <div
-                class="flex flex-col gap-1 p-4 rounded-2xl bg-white dark:bg-surface-dark shadow-md border border-border-light dark:border-border-dark">
-                <span class="stat-number text-3xl sm:text-4xl font-black">24 ч</span>
+                class="flex flex-col gap-1 p-2.5 sm:p-4 rounded-2xl bg-white dark:bg-surface-dark shadow-md border border-border-light dark:border-border-dark">
+                <span class="stat-number text-2xl sm:text-4xl font-black">24 ч</span>
                 <span
-                  class="text-text-secondary-light dark:text-text-secondary-dark text-sm font-medium">подключение</span>
+                  class="text-text-secondary-light dark:text-text-secondary-dark text-xs sm:text-sm font-medium">подключение</span>
               </div>
               <div
-                class="flex flex-col gap-1 p-4 rounded-2xl bg-white dark:bg-surface-dark shadow-md border border-border-light dark:border-border-dark">
-                <span class="stat-number text-3xl sm:text-4xl font-black">T+1</span>
+                class="flex flex-col gap-1 p-2.5 sm:p-4 rounded-2xl bg-white dark:bg-surface-dark shadow-md border border-border-light dark:border-border-dark">
+                <span class="stat-number text-2xl sm:text-4xl font-black">T+1</span>
                 <span
-                  class="text-text-secondary-light dark:text-text-secondary-dark text-sm font-medium">зачисление</span>
+                  class="text-text-secondary-light dark:text-text-secondary-dark text-xs sm:text-sm font-medium">зачисление</span>
               </div>
             </div>
             <div class="flex flex-col sm:flex-row gap-4">
@@ -503,9 +504,10 @@
           </div>
           <div class="text-center">
             <button onclick="openModal()"
-              class="inline-flex items-center justify-center rounded-xl h-14 px-10 bg-gradient-to-r from-primary to-accent hover:from-primary-dark hover:to-primary transition-all text-white text-lg font-bold shadow-xl shadow-primary/25 hover:shadow-primary/40 transform hover:-translate-y-0.5">
-              <span class="material-symbols-outlined mr-2 text-[24px]">calculate</span> Получить индивидуальное
-              предложение
+              class="inline-flex items-center justify-center rounded-xl h-12 sm:h-14 px-6 sm:px-10 bg-gradient-to-r from-primary to-accent hover:from-primary-dark hover:to-primary transition-all text-white text-base sm:text-lg font-bold shadow-xl shadow-primary/25 hover:shadow-primary/40 transform hover:-translate-y-0.5">
+              <span class="material-symbols-outlined mr-2 text-[20px] sm:text-[24px]">calculate</span>
+              <span class="hidden sm:inline">Получить индивидуальное предложение</span>
+              <span class="sm:hidden">Индивидуальное предложение</span>
             </button>
             <p class="text-text-secondary-light dark:text-text-secondary-dark text-sm mt-4">Индивидуальные условия для
               оборота от 1 млн ₽/мес</p>
@@ -554,13 +556,13 @@
       </section>
 
       <!-- CTA Section -->
-      <section class="w-full px-4 py-24 max-w-4xl mx-auto text-center reveal">
+      <section class="w-full px-4 py-12 md:py-24 max-w-4xl mx-auto text-center reveal">
         <div
-          class="rounded-3xl bg-gradient-to-br from-primary-dark to-primary p-8 md:p-12 lg:p-16 text-white shadow-2xl relative overflow-hidden">
+          class="rounded-3xl bg-gradient-to-br from-primary-dark to-primary p-6 sm:p-8 md:p-12 lg:p-16 text-white shadow-2xl relative overflow-hidden">
           <div class="absolute top-0 right-0 -mr-16 -mt-16 w-64 h-64 bg-white opacity-10 rounded-full blur-3xl"></div>
           <div class="absolute bottom-0 left-0 -ml-16 -mb-16 w-64 h-64 bg-black opacity-10 rounded-full blur-3xl"></div>
           <div class="relative z-10 flex flex-col gap-6 items-center">
-            <h2 class="text-3xl md:text-4xl font-black leading-tight">Готовы масштабировать бизнес?</h2>
+            <h2 class="text-2xl sm:text-3xl md:text-4xl font-black leading-tight">Готовы масштабировать бизнес?</h2>
             <p class="text-blue-100 text-lg md:text-xl max-w-2xl">Подключите AcquirinPro сегодня. Ставка от 1%,
               внедрение за 30 минут, деньги на счёте на следующий день.</p>
             <div class="flex flex-col sm:flex-row gap-4 mt-4 w-full justify-center">
@@ -627,7 +629,7 @@
             © ProOnline, ООО «ПРООНЛАЙН», 2025. Разработано в <a href="#"
               class="hover:text-primary transition-colors">IT Techno Media</a>
           </p>
-          <div class="flex flex-wrap gap-4 md:gap-6">
+          <div class="flex flex-col sm:flex-row flex-wrap gap-2 sm:gap-4 md:gap-6">
             <a class="text-xs text-text-secondary-light dark:text-text-secondary-dark hover:text-primary transition-colors"
               href="#" onclick="openLegalModal('modal-consumer'); return false;">Права потребителя</a>
             <a class="text-xs text-text-secondary-light dark:text-text-secondary-dark hover:text-primary transition-colors"
@@ -648,7 +650,7 @@
   <!-- Modal Form — Рекомендация маркетолога №3: простая форма (Имя + Телефон) -->
   <div id="modal-form"
     class="modal-backdrop fixed inset-0 z-[100] flex items-center justify-center bg-black/50 backdrop-blur-sm p-4">
-    <div class="modal-content bg-white dark:bg-surface-dark rounded-2xl shadow-2xl w-full max-w-md p-8 relative">
+    <div class="modal-content bg-white dark:bg-surface-dark rounded-2xl shadow-2xl w-full max-w-md p-5 sm:p-8 relative">
       <button onclick="closeModal()"
         class="absolute top-4 right-4 text-text-secondary-light dark:text-text-secondary-dark hover:text-text-light dark:hover:text-white transition-colors">
         <span class="material-symbols-outlined text-[24px]">close</span>
@@ -699,7 +701,7 @@
   <div id="modal-consumer"
     class="modal-backdrop fixed inset-0 z-[100] flex items-center justify-center bg-black/50 backdrop-blur-sm p-4">
     <div
-      class="modal-content bg-white dark:bg-surface-dark rounded-2xl shadow-2xl w-full max-w-2xl p-8 relative max-h-[85vh] overflow-y-auto">
+      class="modal-content bg-white dark:bg-surface-dark rounded-2xl shadow-2xl w-full max-w-2xl p-4 sm:p-8 relative max-h-[85vh] overflow-y-auto">
       <button onclick="closeLegalModal('modal-consumer')"
         class="absolute top-4 right-4 text-text-secondary-light dark:text-text-secondary-dark hover:text-text-light dark:hover:text-white transition-colors">
         <span class="material-symbols-outlined text-[24px]">close</span>
@@ -755,7 +757,7 @@
   <div id="modal-security"
     class="modal-backdrop fixed inset-0 z-[100] flex items-center justify-center bg-black/50 backdrop-blur-sm p-4">
     <div
-      class="modal-content bg-white dark:bg-surface-dark rounded-2xl shadow-2xl w-full max-w-2xl p-8 relative max-h-[85vh] overflow-y-auto">
+      class="modal-content bg-white dark:bg-surface-dark rounded-2xl shadow-2xl w-full max-w-2xl p-4 sm:p-8 relative max-h-[85vh] overflow-y-auto">
       <button onclick="closeLegalModal('modal-security')"
         class="absolute top-4 right-4 text-text-secondary-light dark:text-text-secondary-dark hover:text-text-light dark:hover:text-white transition-colors">
         <span class="material-symbols-outlined text-[24px]">close</span>
@@ -784,7 +786,7 @@
   <div id="modal-privacy"
     class="modal-backdrop fixed inset-0 z-[100] flex items-center justify-center bg-black/50 backdrop-blur-sm p-4">
     <div
-      class="modal-content bg-white dark:bg-surface-dark rounded-2xl shadow-2xl w-full max-w-2xl p-8 relative max-h-[85vh] overflow-y-auto">
+      class="modal-content bg-white dark:bg-surface-dark rounded-2xl shadow-2xl w-full max-w-2xl p-4 sm:p-8 relative max-h-[85vh] overflow-y-auto">
       <button onclick="closeLegalModal('modal-privacy')"
         class="absolute top-4 right-4 text-text-secondary-light dark:text-text-secondary-dark hover:text-text-light dark:hover:text-white transition-colors">
         <span class="material-symbols-outlined text-[24px]">close</span>
@@ -826,7 +828,7 @@
   <div id="modal-recurring"
     class="modal-backdrop fixed inset-0 z-[100] flex items-center justify-center bg-black/50 backdrop-blur-sm p-4">
     <div
-      class="modal-content bg-white dark:bg-surface-dark rounded-2xl shadow-2xl w-full max-w-2xl p-8 relative max-h-[85vh] overflow-y-auto">
+      class="modal-content bg-white dark:bg-surface-dark rounded-2xl shadow-2xl w-full max-w-2xl p-4 sm:p-8 relative max-h-[85vh] overflow-y-auto">
       <button onclick="closeLegalModal('modal-recurring')"
         class="absolute top-4 right-4 text-text-secondary-light dark:text-text-secondary-dark hover:text-text-light dark:hover:text-white transition-colors">
         <span class="material-symbols-outlined text-[24px]">close</span>
