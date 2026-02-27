@@ -964,6 +964,7 @@
         });
         const data = await response.json();
         if (data.success) {
+          ym(107004746, 'reachGoal', 'zayavka');
           document.getElementById('lead-form').classList.add('hidden');
           document.getElementById('form-success').classList.remove('hidden');
         } else {
